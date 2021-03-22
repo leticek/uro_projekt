@@ -1,6 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
 
+from main_page.client_progress import ClientProgress
 from main_page.personal_info import PersonalInfo
 
 
@@ -9,8 +9,9 @@ class ClientCard:
         super().__init__()
 
         # FRAMES
-        self.lframe_find_client = tk.LabelFrame(master=root, labelanchor='nw', text='Karta klienta', padx=6,
+        self.lframe_client_card = tk.LabelFrame(master=root, labelanchor='nw', text='Karta klienta', padx=6,
                                                 pady=6)
-        self.personal_info = PersonalInfo(self.lframe_find_client)
+        self.personal_info = PersonalInfo(self.lframe_client_card)
+        self.client_progress = ClientProgress(self.lframe_client_card)
 
-        self.lframe_find_client.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.lframe_client_card.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)

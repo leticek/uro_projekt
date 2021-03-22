@@ -12,7 +12,7 @@ class MainPage:
         self.find_client_section = FindClient(self.main_frame)
         self.client_card_section = ClientCard(self.main_frame)
 
-        self.main_frame.pack()
+        self.main_frame.pack(fill=tk.BOTH, expand=True)
 
     def get_main_frame(self):
         return self.main_frame

@@ -10,6 +10,14 @@ class FindClient:
 
         self.lframe_find_client = tk.LabelFrame(master=main_frame, labelanchor='nw', text='Najdi klienta', padx=6,
                                                 pady=6)
+        self.lframe_find_client.rowconfigure(0, weight=1)
+        self.lframe_find_client.rowconfigure(1, weight=1)
+        self.lframe_find_client.rowconfigure(2, weight=1)
+        self.lframe_find_client.columnconfigure(0, weight=1)
+        self.lframe_find_client.columnconfigure(1, weight=1)
+        self.lframe_find_client.columnconfigure(2, weight=1)
+        self.lframe_find_client.columnconfigure(3, weight=1)
+        self.lframe_find_client.columnconfigure(4, weight=1)
         # LABELS
         self.l_personal_number = tk.Label(master=self.lframe_find_client, text="Osobní číslo:")
         self.l_name = tk.Label(master=self.lframe_find_client, text="Jméno:")
@@ -26,16 +34,16 @@ class FindClient:
         self.tb_name = tk.Text(master=self.lframe_find_client, width=10, height=1)
         self.tb_surname = tk.Text(master=self.lframe_find_client, width=10, height=1)
 
-        self.tb_personal_number.grid(row=0, column=1, sticky=tk.W + tk.N + tk.S, padx=2, pady=2)
-        self.tb_name.grid(row=1, column=1, sticky=tk.W + tk.N + tk.S, padx=2, pady=2)
-        self.tb_surname.grid(row=2, column=1, sticky=tk.W + tk.N + tk.S, padx=2, pady=2)
+        self.tb_personal_number.grid(row=0, column=1, sticky=tk.W + tk.E, padx=2, pady=2)
+        self.tb_name.grid(row=1, column=1, sticky=tk.W + tk.E, padx=2, pady=2)
+        self.tb_surname.grid(row=2, column=1, sticky=tk.W + tk.E, padx=2, pady=2)
 
         # LISTBOX
         self.lb_age_values = tk.StringVar()
         self.lb_age = ttk.Combobox(master=self.lframe_find_client, height=1, width=6,
                                    values="1970 1971 1972 1973")
 
-        self.lb_age.grid(row=0, column=3, sticky=tk.W + tk.N + tk.S)
+        self.lb_age.grid(row=0, column=3, sticky=tk.W + tk.E)
 
         # CHECKBOX
         self.cb_active = ttk.Checkbutton(master=self.lframe_find_client, text="Aktivní")
@@ -62,4 +70,4 @@ class FindClient:
                                                         ('Rok narození', 4)))
         self.multiListBox.grid(row=4, columnspan=5)
 
-        self.lframe_find_client.pack(side=tk.LEFT, fill=tk.Y)
+        self.lframe_find_client.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)

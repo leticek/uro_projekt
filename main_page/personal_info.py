@@ -14,6 +14,24 @@ class PersonalInfo:
 
         self.f_main_client_info.pack()
         self.f_other_client_info.pack()
+
+        self.f_main_client_info.grid_rowconfigure(0, weight=1)
+        self.f_main_client_info.grid_rowconfigure(1, weight=1)
+        self.f_main_client_info.grid_rowconfigure(2, weight=1)
+        self.f_main_client_info.grid_rowconfigure(3, weight=1)
+        self.f_main_client_info.grid_rowconfigure(4, weight=1)
+        self.f_main_client_info.grid_columnconfigure(0, weight=1)
+        self.f_main_client_info.grid_columnconfigure(1, weight=1)
+
+        self.f_other_client_info.grid_rowconfigure(0, weight=1)
+        self.f_other_client_info.grid_rowconfigure(1, weight=1)
+        self.f_other_client_info.grid_rowconfigure(2, weight=1)
+        self.f_other_client_info.grid_rowconfigure(3, weight=1)
+        self.f_other_client_info.grid_rowconfigure(4, weight=1)
+        self.f_other_client_info.grid_rowconfigure(5, weight=1)
+        self.f_other_client_info.grid_columnconfigure(0, weight=1)
+        self.f_other_client_info.grid_columnconfigure(1, weight=1)
+
         # LABELS
         self.l_title = tk.Label(master=self.f_main_client_info, text="Titul:")
         self.l_name = tk.Label(master=self.f_main_client_info, text="Jméno:")
@@ -54,10 +72,10 @@ class PersonalInfo:
         self.tb_town = tk.Text(master=self.f_other_client_info, width=20, height=1)
         self.tb_zip_code = tk.Text(master=self.f_other_client_info, width=6, height=1)
 
-        self.tb_title.grid(row=0, column=1, sticky=tk.W + tk.N + tk.S, padx=2, pady=2)
-        self.tb_name.grid(row=1, column=1, sticky=tk.W + tk.N + tk.S, padx=2, pady=2)
-        self.tb_surname.grid(row=2, column=1, sticky=tk.W + tk.N + tk.S, padx=2, pady=2)
-        self.tb_occupation.grid(row=4, column=1, sticky=tk.W + tk.N + tk.S, padx=2, pady=2)
+        self.tb_title.grid(row=0, column=1, sticky=tk.W, padx=2, pady=2)
+        self.tb_name.grid(row=1, column=1, sticky=tk.W, padx=2, pady=2)
+        self.tb_surname.grid(row=2, column=1, sticky=tk.W, padx=2, pady=2)
+        self.tb_occupation.grid(row=4, column=1, sticky=tk.W, padx=2, pady=2)
 
         self.tb_phone.grid(row=0, column=2, sticky=tk.W, padx=2, pady=2)
         self.tb_email.grid(row=1, column=2, sticky=tk.W, padx=2, pady=2)
@@ -66,7 +84,6 @@ class PersonalInfo:
         self.tb_town.grid(row=4, column=2, sticky=tk.W, padx=2, pady=2)
         self.tb_zip_code.grid(row=5, column=2, sticky=tk.W, padx=2, pady=2)
 
-
         # PAGES
         self.first_page = self.f_main_client_info
         self.second_page = self.f_other_client_info
@@ -74,4 +91,4 @@ class PersonalInfo:
         self.pages.add(self.first_page, text="Základní informace")
         self.pages.add(self.second_page, text="Adresa")
 
-        self.pages.pack(fill=tk.X)
+        self.pages.pack(fill=tk.BOTH, expand=True)
