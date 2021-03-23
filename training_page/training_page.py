@@ -34,7 +34,7 @@ class TrainingPage:
         self.mlb_history = multi_listbox.MultiListbox(self.lframe_training_history,
                                                       (('Datum', 8), ('Název', 10), ('Den v týdnu', 7)))
         self.mlb_exercises = multi_listbox.MultiListbox(self.lframe_exercises,
-                                                        (('Cvik', 8), ('Série', 10), ('Opakování', 7)))
+                                                        (('Cvik', 8), ('Série', 10), ('Opakování', 7), ('Zátěž', 7)))
 
         self.mlb_history.grid(row=0, column=0, sticky=tk.W + tk.E + tk.S + tk.N)
         self.mlb_exercises.grid(row=0, column=0, sticky=tk.W + tk.E + tk.S + tk.N)

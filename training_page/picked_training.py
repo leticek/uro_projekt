@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+import multi_listbox
+
 
 class PickedTraining:
 
@@ -29,9 +31,9 @@ class PickedTraining:
         self.lb_place = ttk.Combobox(self.lframe_planned_training, height=1, width=6,
                                      values="Ostrava Karviná Havířov").grid(row=1, column=1, sticky=tk.W + tk.E)
         self.t_training_len = tk.Text(self.lframe_planned_training, height=1, width=7).grid(row=2, column=1,
-                                                                                            sticky=tk.W)
-        self.t_focus = tk.Text(self.lframe_planned_training, height=1, width=7).grid(row=3, column=1, sticky=tk.W)
-        self.t_note = tk.Text(self.lframe_planned_training, height=2, width=7).grid(row=5, column=0, columnspan=2,
+                                                                                            sticky=tk.W+tk.E, padx=5)
+        self.t_focus = tk.Text(self.lframe_planned_training, height=1, width=7).grid(row=3, column=1, sticky=tk.W+tk.E, padx=5)
+        self.t_note = tk.Text(self.lframe_planned_training, height=2, width=7, padx=5).grid(row=5, column=0, columnspan=2,
                                                                                     sticky=tk.W + tk.E + tk.S + tk.N)
 
         self.lframe_training_plan = tk.LabelFrame(self.lframe_planned_training, text="Plán tréninku", pady=7,
@@ -39,32 +41,11 @@ class PickedTraining:
         self.lframe_training_plan.rowconfigure(0, weight=1)
         self.lframe_training_plan.columnconfigure(0, weight=1)
 
-        self.lframe_warmup = tk.LabelFrame(self.lframe_training_plan, text="Rozcvičení", pady=7,
-                                           padx=7)
-        self.t_warmup = tk.Text(self.lframe_warmup, width=15, height=6).grid(row=0, column=0,
+        self.mlb_exercises = multi_listbox.MultiListbox(self.lframe_training_plan,
+                                                        (('Cvik', 8), ('Série', 10), ('Opakování', 7),
+                                                         ('Zátěž', 7))).grid(row=0,
+                                                                             column=0,
                                                                              sticky=tk.W + tk.E + tk.S + tk.N)
-        self.lframe_warmup.grid(row=0, column=0, sticky=tk.W + tk.E + tk.S + tk.N)
-
-        self.lframe_exercises = tk.LabelFrame(self.lframe_training_plan, text="Cviky", pady=7,
-                                              padx=7)
-
-        for i in range(4):
-            self.lframe_exercises.rowconfigure(i, weight=1)
-        for i in range(3):
-            self.lframe_exercises.columnconfigure(i, weight=1)
-
-        self.l_exercise = tk.Label(self.lframe_exercises, text="Cvik: ").grid(row=0, column=0, sticky=tk.W)
-        self.l_series = tk.Label(self.lframe_exercises, text="Série: ").grid(row=1, column=0, sticky=tk.W)
-        self.l_repetitions = tk.Label(self.lframe_exercises, text="Opakování: ").grid(row=2, column=0, sticky=tk.W)
-        self.l_weight = tk.Label(self.lframe_exercises, text="Zátěž: ").grid(row=3, column=0, sticky=tk.W)
-
-        self.t_exercise = tk.Text(self.lframe_exercises, width=10, height=1).grid(row=0, column=1, sticky=tk.W + tk.E)
-        self.t_series = tk.Text(self.lframe_exercises, width=10, height=1).grid(row=1, column=1, sticky=tk.W + tk.E)
-        self.t_repetitions = tk.Text(self.lframe_exercises, width=10, height=1).grid(row=2, column=1,
-                                                                                     sticky=tk.W + tk.E)
-        self.t_weight = tk.Text(self.lframe_exercises, width=10, height=1).grid(row=3, column=1, sticky=tk.W + tk.E)
-
-        self.lframe_exercises.grid(row=0, column=1, sticky=tk.W + tk.E + tk.S + tk.N)
         self.lframe_training_plan.grid(row=1, column=2, rowspan=5, columnspan=3,
                                        sticky=tk.W + tk.E + tk.S + tk.N)
 

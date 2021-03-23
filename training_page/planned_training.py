@@ -29,9 +29,10 @@ class PlannedTraining:
         self.lb_place = ttk.Combobox(self.lframe_planned_training, height=1, width=6,
                                      values="Ostrava Karviná Havířov").grid(row=1, column=1, sticky=tk.W + tk.E)
         self.t_training_len = tk.Text(self.lframe_planned_training, height=1, width=7).grid(row=2, column=1,
-                                                                                            sticky=tk.W)
-        self.t_focus = tk.Text(self.lframe_planned_training, height=1, width=7).grid(row=3, column=1, sticky=tk.W)
-        self.t_note = tk.Text(self.lframe_planned_training, height=2, width=7).grid(row=5, column=0, columnspan=2,
+                                                                                            sticky=tk.W + tk.E, padx=5)
+        self.t_focus = tk.Text(self.lframe_planned_training, height=1, width=7).grid(row=3, column=1,
+                                                                                     sticky=tk.W + tk.E, padx=5)
+        self.t_note = tk.Text(self.lframe_planned_training, height=2, width=7, padx=5).grid(row=5, column=0, columnspan=2,
                                                                                     sticky=tk.W + tk.E + tk.S + tk.N)
 
         self.lframe_training_plan = tk.LabelFrame(self.lframe_planned_training, text="Plán tréninku", pady=7,
@@ -64,8 +65,9 @@ class PlannedTraining:
                                                                                      sticky=tk.W + tk.E)
         self.t_weight = tk.Text(self.lframe_exercises, width=10, height=1).grid(row=3, column=1, sticky=tk.W + tk.E)
 
-        self.b_add_exercise = tk.Button(self.lframe_exercises, text="Přidat cvik").grid(row=0, column=2, rowspan=4,
-                                                                                        sticky=tk.N + tk.S)
+        self.b_add_exercise = tk.Button(self.lframe_exercises, text="Přidat cvik", padx=10).grid(row=0, column=2,
+                                                                                                 rowspan=4,
+                                                                                                 sticky=tk.N + tk.S)
 
         self.lframe_exercises.grid(row=0, column=1, sticky=tk.W + tk.E + tk.S + tk.N)
         self.lframe_training_plan.grid(row=1, column=2, rowspan=5, columnspan=3,
