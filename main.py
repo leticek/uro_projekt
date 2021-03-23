@@ -2,26 +2,14 @@ import tkinter as tk
 from main_page import main_page
 from tkinter import ttk
 
+from training_page.training_page import TrainingPage
+
 
 class DietPage:
     def __init__(self, app):
         super().__init__()
         self.root = app
         self.lframe_find_client = tk.LabelFrame(master=app, labelanchor='nw', text='Jídelníček', padx=10,
-                                                pady=10)
-        self.test = tk.Label(master=self.lframe_find_client, text="Test")
-        self.test.pack()
-        self.lframe_find_client.pack()
-
-    def get_main_frame(self):
-        return self.lframe_find_client
-
-
-class TrainingPage:
-    def __init__(self, app):
-        super().__init__()
-        self.root = app
-        self.lframe_find_client = tk.LabelFrame(master=app, labelanchor='nw', text='Trénink', padx=10,
                                                 pady=10)
         self.test = tk.Label(master=self.lframe_find_client, text="Test")
         self.test.pack()

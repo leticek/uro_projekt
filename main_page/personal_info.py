@@ -15,20 +15,15 @@ class PersonalInfo:
         self.f_main_client_info.pack()
         self.f_other_client_info.pack()
 
-        self.f_main_client_info.grid_rowconfigure(0, weight=1)
-        self.f_main_client_info.grid_rowconfigure(1, weight=1)
-        self.f_main_client_info.grid_rowconfigure(2, weight=1)
-        self.f_main_client_info.grid_rowconfigure(3, weight=1)
-        self.f_main_client_info.grid_rowconfigure(4, weight=1)
+        for i in range(4):
+            self.f_main_client_info.grid_rowconfigure(i, weight=1)
+
         self.f_main_client_info.grid_columnconfigure(0, weight=1)
         self.f_main_client_info.grid_columnconfigure(1, weight=1)
 
-        self.f_other_client_info.grid_rowconfigure(0, weight=1)
-        self.f_other_client_info.grid_rowconfigure(1, weight=1)
-        self.f_other_client_info.grid_rowconfigure(2, weight=1)
-        self.f_other_client_info.grid_rowconfigure(3, weight=1)
-        self.f_other_client_info.grid_rowconfigure(4, weight=1)
-        self.f_other_client_info.grid_rowconfigure(5, weight=1)
+        for i in range(5):
+            self.f_other_client_info.grid_rowconfigure(i, weight=1)
+
         self.f_other_client_info.grid_columnconfigure(0, weight=1)
         self.f_other_client_info.grid_columnconfigure(1, weight=1)
 
