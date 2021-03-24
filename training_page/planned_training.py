@@ -32,8 +32,9 @@ class PlannedTraining:
                                                                                             sticky=tk.W + tk.E, padx=5)
         self.t_focus = tk.Text(self.lframe_planned_training, height=1, width=7).grid(row=3, column=1,
                                                                                      sticky=tk.W + tk.E, padx=5)
-        self.t_note = tk.Text(self.lframe_planned_training, height=2, width=7, padx=5).grid(row=5, column=0, columnspan=2,
-                                                                                    sticky=tk.W + tk.E + tk.S + tk.N)
+        self.t_note = tk.Text(self.lframe_planned_training, height=2, width=7, padx=5).grid(row=5, column=0,
+                                                                                            columnspan=2,
+                                                                                            sticky=tk.W + tk.E + tk.S + tk.N)
 
         self.lframe_training_plan = tk.LabelFrame(self.lframe_planned_training, text="Plán tréninku", pady=7,
                                                   padx=7)
@@ -42,6 +43,8 @@ class PlannedTraining:
 
         self.lframe_warmup = tk.LabelFrame(self.lframe_training_plan, text="Rozcvičení", pady=7,
                                            padx=7)
+        self.lframe_warmup.rowconfigure(0, weight=1)
+        self.lframe_warmup.columnconfigure(0, weight=1)
         self.t_warmup = tk.Text(self.lframe_warmup, width=15, height=6).grid(row=0, column=0,
                                                                              sticky=tk.W + tk.E + tk.S + tk.N)
         self.lframe_warmup.grid(row=0, column=0, sticky=tk.W + tk.E + tk.S + tk.N)
