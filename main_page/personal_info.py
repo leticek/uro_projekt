@@ -55,9 +55,10 @@ class PersonalInfo:
         self.l_zip_code.grid(row=5, column=1, sticky=tk.E, padx=2, pady=2)
 
         # TEXTBOXES
-        self.tb_title = tk.Text(master=self.f_main_client_info, width=6, height=1)
+        self.tb_title = tk.Text(master=self.f_main_client_info, width=6, height=1, )
         self.tb_name = tk.Text(master=self.f_main_client_info, width=10, height=1)
         self.tb_surname = tk.Text(master=self.f_main_client_info, width=10, height=1)
+        self.tb_birth_date = tk.Text(master=self.f_main_client_info, width=10, height=1)
         self.tb_occupation = tk.Text(master=self.f_main_client_info, width=10, height=1)
 
         self.tb_phone = tk.Text(master=self.f_other_client_info, width=13, height=1)
@@ -70,6 +71,7 @@ class PersonalInfo:
         self.tb_title.grid(row=0, column=1, sticky=tk.W, padx=2, pady=2)
         self.tb_name.grid(row=1, column=1, sticky=tk.W, padx=2, pady=2)
         self.tb_surname.grid(row=2, column=1, sticky=tk.W, padx=2, pady=2)
+        self.tb_birth_date.grid(row=3, column=1, sticky=tk.W, padx=2, pady=2)
         self.tb_occupation.grid(row=4, column=1, sticky=tk.W, padx=2, pady=2)
 
         self.tb_phone.grid(row=0, column=2, sticky=tk.W, padx=2, pady=2)

@@ -6,7 +6,7 @@ from diet_page.food_window import FoodWindow
 class PickedDietPlan:
 
     def __init__(self, master) -> None:
-        self.root = tk.LabelFrame(master, text="Jídelní plán")
+        self.root = tk.LabelFrame(master, text="Vybraný plán")
 
         for i in range(2):
             self.root.rowconfigure(i, weight=1)
