@@ -10,13 +10,13 @@ class Observable(object):
         self.__items = {}
 
     def emit(self, *args):
-        '''Pass parameters to all observers and update states.'''
+        """Pass parameters to all observers and update states."""
         for subscriber in self.__items:
             response = subscriber(*args)
             self.__items[subscriber] = response
 
     def subscribe(self, subscriber):
-        '''Add a new subscriber to self.'''
+        """Add a new subscriber to self."""
         self.__items[subscriber] = None
 
     def stat(self):
@@ -30,7 +30,7 @@ class MultiListbox(Frame, Observable):
         Observable.__init__(self)
         self.lists = []
         for l, w in lists:
-            frame = Frame(self);
+            frame = Frame(self)
             frame.pack(side=LEFT, expand=YES, fill=BOTH)
             Label(frame, text=l, borderwidth=1, relief=RAISED).pack(fill=X)
             lb = Listbox(frame, width=w, borderwidth=0, selectborderwidth=0,
@@ -42,7 +42,7 @@ class MultiListbox(Frame, Observable):
             lb.bind('<Leave>', lambda e: 'break')
             lb.bind('<B2-Motion>', lambda e, s=self: s._b2motion(e.x, e.y))
             lb.bind('<Button-2>', lambda e, s=self: s._button2(e.x, e.y))
-        frame = Frame(self);
+        frame = Frame(self)
         frame.pack(side=LEFT, fill=Y)
         Label(frame, borderwidth=1, relief=RAISED).pack(fill=X)
         sb = Scrollbar(frame, orient=VERTICAL, command=self._scroll)
