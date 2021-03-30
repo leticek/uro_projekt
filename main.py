@@ -266,11 +266,12 @@ if __name__ == '__main__':
 
     lf_training_history.grid(row=0, column=0, sticky=tk.N + tk.E + tk.S + tk.W)
     # HISTORY
+
     # EXERCISES
     lf_training_exercises = tk.LabelFrame(master=f_second_page, text="Cviky")
     lf_training_exercises.rowconfigure(0, weight=1)
     lf_training_exercises.columnconfigure(0, weight=1)
-    mlb_exercises = MultiListbox(lf_training_exercises, (('Cvik', 10), ('Série', 4), ('Opakování', 4)))
+    mlb_exercises = MultiListbox(lf_training_exercises, (('Cvik', 10), ('Série', 4), ('Opakování', 4), ('Váha', 4)))
     mlb_exercises.grid(row=0, column=0, sticky=tk.N + tk.E + tk.S + tk.W)
     lf_training_exercises.grid(row=1, column=3, sticky=tk.N + tk.E + tk.S + tk.W)
     # EXERCISES
@@ -318,7 +319,14 @@ if __name__ == '__main__':
     t_t_series.grid(row=2, column=1, sticky=tk.W)
     t_t_weight.grid(row=3, column=1, sticky=tk.W)
 
-    b_add_ex = tk.Button(lf_new_exercise, text="Přidat")
+
+    def add_exercise(exercise, reps, series, weight):
+        mlb_exercises.insert(tk.END, (exercise, series, reps, weight))
+
+
+    b_add_ex = tk.Button(lf_new_exercise, text="Přidat",
+                         command=lambda: add_exercise(t_t_exercise.get(), t_t_reps.get(), t_t_series.get(),
+                                                      t_t_weight.get()))
     b_add_ex.grid(row=4, column=0, columnspan=2, sticky=tk.E + tk.W + tk.S)
 
     lf_new_exercise.grid(row=0, rowspan=3, column=2, columnspan=3, sticky=tk.N + tk.E + tk.S + tk.W)
@@ -341,26 +349,25 @@ if __name__ == '__main__':
     tk.Label(master=lf_picked_training, text="Délka(min): ").grid(row=1, column=0, sticky=tk.N + tk.E + tk.S)
     tk.Label(master=lf_picked_training, text="Zaměření: ").grid(row=2, column=0, sticky=tk.N + tk.E + tk.S)
 
-    t_t_name = tk.Entry(master=lf_picked_training, width=10)
-    t_t_length = tk.Entry(master=lf_picked_training, width=5)
-    t_t_focus = tk.Entry(master=lf_picked_training, width=10)
+    t_pt_name = tk.Entry(master=lf_picked_training, width=10, state='disabled')
+    t_pt_length = tk.Entry(master=lf_picked_training, width=5, state='disabled')
+    t_pt_focus = tk.Entry(master=lf_picked_training, width=10, state='disabled')
 
-    t_t_name.grid(row=0, column=1, sticky=tk.W)
-    t_t_length.grid(row=1, column=1, sticky=tk.W)
-    t_t_focus.grid(row=2, column=1, sticky=tk.W)
+    t_pt_name.grid(row=0, column=1, sticky=tk.W)
+    t_pt_length.grid(row=1, column=1, sticky=tk.W)
+    t_pt_focus.grid(row=2, column=1, sticky=tk.W)
 
-    # NEW EXERCISE
+    #  EXERCISES
     lf_exercises = tk.LabelFrame(master=lf_picked_training, text="Cviky")
 
     lf_exercises.columnconfigure(0, weight=1)
     lf_exercises.rowconfigure(0, weight=1)
 
-    mlb_picked_exercises = MultiListbox(lf_exercises, (('Název', 10), ('Délka', 4), ('Zaměření', 15)))
+    mlb_picked_exercises = MultiListbox(lf_exercises, (('Cvik', 10), ('Série', 4), ('Opakování', 4), ('Váha', 4)))
     mlb_picked_exercises.grid(row=0, column=0, sticky=tk.N + tk.E + tk.S + tk.W)
 
     lf_exercises.grid(row=0, rowspan=3, column=2, columnspan=3, sticky=tk.N + tk.E + tk.S + tk.W)
-
-    # NEW EXERCISE
+    #  EXERCISES
 
     lf_picked_training.grid(row=0, column=1, columnspan=3, sticky=tk.N + tk.E + tk.S + tk.W)
     # NEW TRAINING
