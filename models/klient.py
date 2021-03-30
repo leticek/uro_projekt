@@ -20,3 +20,4 @@ class Client:
         self.a_fat = a_fat
         self.a_arm = a_arm
         self.address = address
+        self.trainings = []
