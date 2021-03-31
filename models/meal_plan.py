@@ -1,10 +1,8 @@
 class MealPlan:
 
-    def __init__(self, weight_before=None, weigh_goal=None, plan_category=None, meals=None, client=None) -> None:
+    def __init__(self, plan_category=None, meals=None, name=None) -> None:
         super().__init__()
 
-        self.client = client
-        self.weight_before = weight_before
-        self.weight_goal = weigh_goal
+        self.name = name
         self.plan_category = plan_category
         self.meals = meals
